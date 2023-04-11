@@ -1,15 +1,21 @@
 let main = document.querySelector("main");
 const form = document.querySelector("form");
+const formToggle = document.querySelector(".form-toggle");
 
-// const addBookInput = document.getElementById("add-book");
+// toggling the form
+
+formToggle.addEventListener("click", (e) => {
+  e.target.classList.toggle("hidden");
+  form.classList.toggle("hidden");
+});
 
 function addToPage(item, child) {
   item.append(child);
 }
 
 form.addEventListener("submit", (e) => {
+  // checking validity of form, but also preventing it from submitting
   e.preventDefault();
-
   if (form.checkValidity === false) {
     form.reportValidity();
     return;
@@ -42,6 +48,9 @@ form.addEventListener("submit", (e) => {
   readCheckbox.setAttribute("type", "checkbox");
   readCheckbox.setAttribute("name", "read-status");
   readCheckbox.setAttribute("id", "read-status");
+  const deleteBox = document.createElement("button");
+  deleteBox.setAttribute("class", "delete-button");
+  deleteBox.innerText = "X";
 
   // appending the new item to the page
 
@@ -61,7 +70,13 @@ form.addEventListener("submit", (e) => {
 
   boxHolder.append(labelForCheckbox, readCheckbox);
 
-  bookHolder.append(displayTitle, displayAuthor, displayPageNumber, boxHolder);
+  bookHolder.append(
+    displayTitle,
+    displayAuthor,
+    displayPageNumber,
+    boxHolder,
+    deleteBox
+  );
 
   if (hasReadInput.checked) {
     readCheckbox.setAttribute("checked", "true");
@@ -76,5 +91,13 @@ form.addEventListener("submit", (e) => {
     } else {
       bookHolder.style.border = "red solid 3px";
     }
+  });
+
+  // resetting the buttons and form after submitting
+  e.target.classList.toggle("hidden");
+  formToggle.classList.toggle("hidden");
+
+  deleteBox.addEventListener("click", () => {
+    deleteBox.parentNode.remove();
   });
 });

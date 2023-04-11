@@ -32,6 +32,15 @@ aside {
   grid-row-end: 3;
   height: 100%;
 }
+aside button {
+  height: 40px;
+  margin: 40px auto 0;
+  width: 50%;
+}
+
+.form-toggle {
+  margin-left: 25%;
+}
 
 form {
   display: flex;
@@ -50,11 +59,6 @@ form .input-holder #read-book {
 }
 form .input-holder .read-book-label {
   text-align: center;
-}
-form button {
-  height: 40px;
-  margin: 40px auto 0;
-  width: 50%;
 }
 
 main {
@@ -80,6 +84,18 @@ main {
 .book-holder > * {
   margin: 10px 0;
 }
+.book-holder .delete-button {
+  color: red;
+  position: absolute;
+  left: 10px;
+  top: 5px;
+  font-size: 1.4rem;
+  width: 25px;
+}
 .book-holder .box-holder > * {
   margin-left: 8px;
+}
+
+.hidden {
+  display: none;
 }/*# sourceMappingURL=styles.css.map */

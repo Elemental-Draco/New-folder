@@ -35,6 +35,14 @@ aside {
   grid-row-start: 1;
   grid-row-end: 3;
   height: 100%;
+  button {
+    height: 40px;
+    margin: 40px auto 0;
+    width: 50%;
+  }
+}
+.form-toggle {
+  margin-left: 25%;
 }
 
 form {
@@ -57,11 +65,6 @@ form {
     .read-book-label {
       text-align: center;
     }
-  }
-  button {
-    height: 40px;
-    margin: 40px auto 0;
-    width: 50%;
   }
 }
 
@@ -90,9 +93,22 @@ main {
     margin: 10px 0;
   }
 
+  .delete-button {
+    color: red;
+    position: absolute;
+    left: 10px;
+    top: 5px;
+    font-size: 1.4rem;
+    width: 25px;
+  }
+
   .box-holder {
     > * {
       margin-left: 8px;
     }
   }
+}
+
+.hidden {
+  display: none;
 }
